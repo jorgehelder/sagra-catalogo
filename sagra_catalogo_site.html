@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sagra — Catálogo</title>
+<meta name="description" content="Semijoias Católicas. O sagrado que você carrega.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='480 20 574 594'%3E%3Cg fill='%23CA9932' stroke='none'%3E%3Ccircle cx='767' cy='327' r='265' fill='none' stroke='%23CA9932' stroke-width='2.2'/%3E%3Ccircle cx='767' cy='327' r='237' fill='none' stroke='%23CA9932' stroke-width='1.8'/%3E%3Ccircle cx='767' cy='62' r='7.5'/%3E%3Ccircle cx='1032' cy='327' r='7.5'/%3E%3Ccircle cx='767' cy='592' r='7.5'/%3E%3Ccircle cx='502' cy='327' r='7.5'/%3E%3Cpath d='m 727.80515,270.88 q 0,15.21 7.41,26.52 7.41,11.31 17.94,19.11 10.92,7.41 29.64,18.72 20.67,12.48 31.59,20.67 11.31,8.19 19.11,21.06 8.19,12.48 8.19,30.03 0,18.72 -9.36,33.93 -9.36,15.21 -27.69,24.18 -17.94,8.58 -43.29,8.58 -30.03,0 -54.99,-13.65 -1.95,-1.17 -2.73,-2.73 -0.39,-1.56 -0.78,-4.68 l -5.07,-53.04 q -0.39,-1.56 1.56,-1.95 2.34,-0.39 2.73,1.17 6.24,28.08 23.01,48.36 17.16,20.28 45.24,20.28 19.5,0 32.76,-10.53 13.65,-10.92 13.65,-34.32 0,-17.55 -7.8,-30.42 -7.8,-12.87 -19.11,-21.06 -10.92,-8.58 -30.03,-19.89 -18.72,-11.31 -29.64,-19.5 -10.53,-8.19 -17.94,-20.67 -7.41,-12.48 -7.41,-29.25 0,-19.5 10.14,-33.15 10.53,-14.04 26.91,-20.67 16.77,-7.02 35.49,-7.02 23.01,0 45.63,9.36 5.85,1.95 5.85,6.63 l 2.73,44.85 q 0,1.56 -1.95,1.56 -1.95,0 -2.34,-1.56 -3.12,-20.28 -16.77,-37.44 -13.65,-17.55 -39.39,-17.55 -21.84,0 -32.76,12.87 -10.53,12.48 -10.53,31.2 z' transform='translate(0,-20.32)'/%3E%3C/g%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<!--
+  IDENTIDADE VISUAL OFICIAL — SAGRA
+  Fonte: SAGRA_Manual_Tecnico_Identidade_Visual_v1
+  Logo master: SAGRA_LOGO_DOURADA.svg / .pdf / .png
+  Regra do manual (seção 3): "não reconstruir o logo quando
+  o vetor oficial estiver disponível" — o texto abaixo usa a
+  mesma família tipográfica (Cormorant Garamond) e as mesmas
+  medidas de tracking do manual, mas para qualquer aplicação
+  em alta-fidelidade (impressos, apresentações, redes sociais)
+  use sempre os arquivos master anexos ao projeto.
+-->
+<style>
+  :root {
+    /* Paleta oficial — SAGRA_Manual_Tecnico_Identidade_Visual_v1 */
+    --gold: #CA9932;          /* Dourado digital — tipografia, filetes, ornamentos */
+    --gold-light: #d9b563;    /* variação clara do dourado, só para hovers/brilho */
+    --ebony: #162410;         /* Verde Veludo — cor institucional principal */
+    --velvet: #162410;
+    --off-white: #F5F0E4;     /* Marfim — texto claro, fundos e apoio */
+    --deep-black: #0E0E0C;    /* Preto profundo — sombras/fundos fotográficos */
+    --brown-velvet: #2A1D14;  /* Marrom veludo — posts individuais/editoriais quentes */
+    --warm-beige: #D8C7AD;    /* Bege quente — tecidos, superfícies */
+    --parchment: #f7f3ec;
+    --parchment-2: #ede5d4;
+    --warm-bg: #f0ece4;
+    --text-muted: #7a6a50;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--warm-bg);
+    font-family: 'EB Garamond', Georgia, serif;
+    color: #1a1a16;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ebony);
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(202,153,50,0.08), transparent 60%);
+  }
+  .brand-mark { position: relative; z-index: 1; }
+  .brand-mark .eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(202,153,50,0.5);
+    margin-bottom: 10px;
+  }
+  .brand-mark h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;          /* Medium — conforme manual: títulos hero 500 */
+    letter-spacing: 0.1em;     /* dentro da faixa +0,06–0,14em do manual */
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .star-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;                 /* manual: intervalo estrela/linha 12–18px */
+    margin: 16px 0;
+  }
+  .star-divider .line {
+    width: 68px;                /* manual: filete normalmente 55–95px */
+    height: 1px;                 /* manual: linhas ~1–1.5px */
+    background: rgba(202,153,50,0.45);
+  }
+  .star-divider .star {
+    color: var(--gold);
+    font-size: 16px;             /* manual: estrela 14–20px em aplicações discretas */
+    opacity: 0.85;
+  }
+  .brand-mark .slogan {
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    font-style: italic;          /* manual: itálico reservado a frases poéticas/slogan */
+    font-weight: 400;
+    color: rgba(202,153,50,0.75);
+    margin-top: 2px;
+  }
+
+  /* ── FILTROS ── */
+  .filters-bar {
+    background: var(--parchment);
+    border-bottom: 0.5px solid #ddd5c0;
+    padding: 16px 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .filter-btn {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid #c8b98a;
+    background: transparent;
+    color: #6a5a40;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { background: rgba(202,153,50,0.1); }
+  .filter-btn.active {
+    background: var(--ebony);
+    color: var(--gold);
+    border-color: var(--ebony);
+  }
+
+  /* ── GRID DE PRODUTOS ── */
+  .catalog-wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+
+  .status-msg {
+    text-align: center;
+    padding: 60px 20px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+  }
+
+  .product-card {
+    background: var(--ebony);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 0.5px solid rgba(202,153,50,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(10,14,8,0.35);
+  }
+
+  .product-img-wrap {
+    aspect-ratio: 1;
+    background: var(--ebony);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .product-img-placeholder {
+    color: rgba(202,153,50,0.3);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--gold);
+    color: var(--ebony);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .product-info { padding: 20px 18px 22px; }
+  .product-category {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(202,153,50,0.55);
+    margin-bottom: 6px;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;           /* manual: títulos secundários Medium */
+    letter-spacing: 0.02em;
+    color: var(--off-white);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .product-desc {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    font-style: italic;         /* manual: itálico para frase poética de significado */
+    font-weight: 400;
+    color: rgba(245,240,228,0.6);
+    line-height: 1.65;
+    margin-bottom: 14px;
+    min-height: 20px;
+  }
+  .product-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 0.5px solid rgba(202,153,50,0.15);
+  }
+  .product-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--gold);
+  }
+  .product-cta {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ebony);
+    background: var(--gold);
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, opacity 0.2s;
+  }
+  .product-cta:hover { opacity: 0.85; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ebony);
+    text-align: center;
+    padding: 32px 20px;
+  }
+  footer .foot-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: rgba(202,153,50,0.5);
+    text-transform: uppercase;
+  }
+  footer .foot-ig {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    color: rgba(202,153,50,0.4);
+    margin-top: 6px;
+  }
+
+  @media (max-width: 480px) {
+    .brand-mark h1 { font-size: 34px; letter-spacing: 10px; }
+    .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+    .product-name { font-size: 17px; }
+    .product-price { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand-mark">
+    <div class="eyebrow">Semijoias Católicas</div>
+    <h1>Sagra</h1>
+    <div class="star-divider"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
+    <div class="slogan">O sagrado que você carrega.</div>
+  </div>
+</header>
+
+<div class="filters-bar" id="filtersBar" style="display:none;">
+  <button class="filter-btn active" data-cat="todos">Todos</button>
+</div>
+
+<div class="catalog-wrap">
+  <div id="statusMsg" class="status-msg">Carregando peças...</div>
+  <div id="productGrid" class="product-grid"></div>
+</div>
+
+<footer>
+  <div class="foot-name">Sagra</div>
+  <div class="foot-ig">@sagrasemijoias</div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════
+   CONFIGURAÇÃO — troque esta URL pela sua planilha publicada
+   Veja o guia "Como publicar sua planilha" para gerar este link
+   ══════════════════════════════════════════════════ */
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTZb0aY8zk6GnxAn6CMNqNkh2hjRmjgb8kIkME3WEonloOiYW69RKzUJQ29QoL6WaDIzxHF3QaTTitL/pub?gid=978583199&single=true&output=csv";
+
+/* Número de WhatsApp para o botão "Quero esta peça" (com DDI+DDD, só números) */
+const WHATSAPP_NUMBER = "5585991454420";
+
+/* ══════════════════════════════════════════════════
+   GUIA DE TOM DE VOZ — para quem preenche a coluna
+   "Descrição p/ Catálogo" na planilha (SAGRA_Manual_
+   Tecnico_Identidade_Visual_v1, seção 6):
+
+   - Frases curtas, 4–12 palavras, com ponto final
+     (ex: "Um sinal de fé, beleza e proteção.")
+   - Vocabulário-base: fé, beleza, significado, presença,
+     coração, luz, amor, devoção, confiança, graça,
+     carregar, permanecer
+   - A peça é sinal, expressão ou lembrete da fé —
+     NUNCA afirmar que ela "protege" ou "dá graça" por
+     si mesma, nem chamá-la de "benta" sem confirmação
+   ══════════════════════════════════════════════════ */
+
+function parseCSV(text) {
+  const rows = [];
+  let row = [], field = '', inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i], next = text[i+1];
+    if (inQuotes) {
+      if (c === '"' && next === '"') { field += '"'; i++; }
+      else if (c === '"') { inQuotes = false; }
+      else { field += c; }
+    } else {
+      if (c === '"') inQuotes = true;
+      else if (c === ',') { row.push(field); field = ''; }
+      else if (c === '\n' || c === '\r') {
+        if (c === '\r' && next === '\n') i++;
+        row.push(field); field = '';
+        if (row.some(f => f.trim() !== '')) rows.push(row);
+        row = [];
+      } else field += c;
+    }
+  }
+  if (field !== '' || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+function moneyBR(v) {
+  const n = parseFloat(String(v).replace(/[^\d.,-]/g, '').replace(',', '.'));
+  if (isNaN(n)) return v;
+  return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
+async function loadCatalog() {
+  const grid = document.getElementById('productGrid');
+  const statusMsg = document.getElementById('statusMsg');
+
+  if (!SHEET_CSV_URL || SHEET_CSV_URL.includes('COLE_AQUI')) {
+    statusMsg.innerHTML = 'Catálogo ainda não conectado à planilha.<br><span style="font-size:12px;opacity:0.7;">Veja o guia de publicação para ativar.</span>';
+    return;
+  }
+
+  try {
+    const res = await fetch(SHEET_CSV_URL + (SHEET_CSV_URL.includes('?') ? '&' : '?') + 'cachebust=' + Date.now());
+    if (!res.ok) throw new Error('Falha ao buscar planilha');
+    const text = await res.text();
+    const rows = parseCSV(text);
+
+    if (rows.length < 2) throw new Error('Planilha vazia');
+
+    const headers = rows[0].map(h => h.trim());
+    const idx = {
+      nome: headers.indexOf('Nome do Produto'),
+      categoria: headers.indexOf('Categoria'),
+      preco: headers.indexOf('Preço Venda (R$)'),
+      colecao: headers.indexOf('Coleção'),
+      estoque: headers.indexOf('Estoque Atual'),
+      status: headers.indexOf('Status'),
+      foto: headers.indexOf('Link Direto (automático)'),
+      desc: headers.indexOf('Descrição p/ Catálogo'),
+      disponivel: headers.indexOf('Disponível no Catálogo'),
+    };
+
+    const products = rows.slice(1)
+      .map(r => ({
+        nome: r[idx.nome] || '',
+        categoria: r[idx.categoria] || '',
+        preco: r[idx.preco] || '',
+        colecao: r[idx.colecao] || '',
+        estoque: parseInt(r[idx.estoque]) || 0,
+        status: r[idx.status] || '',
+        foto: r[idx.foto] || '',
+        desc: r[idx.desc] || '',
+        disponivel: (r[idx.disponivel] || '').trim().toLowerCase() === 'sim',
+      }))
+      .filter(p => p.nome && p.disponivel && p.status === 'Ativo' && p.estoque > 0);
+
+    if (products.length === 0) {
+      statusMsg.innerHTML = 'Nenhuma peça disponível no momento.<br><span style="font-size:12px;opacity:0.7;">Volte em breve — novidades chegando! ✦</span>';
+      return;
+    }
+
+    statusMsg.style.display = 'none';
+    renderFilters(products);
+    renderProducts(products);
+
+  } catch (err) {
+    statusMsg.innerHTML = 'Não foi possível carregar o catálogo agora.<br><span style="font-size:12px;opacity:0.7;">Tente novamente em instantes.</span>';
+    console.error(err);
+  }
+}
+
+let allProducts = [];
+
+function renderFilters(products) {
+  allProducts = products;
+  const cats = [...new Set(products.map(p => p.categoria).filter(Boolean))];
+  if (cats.length <= 1) return;
+
+  const bar = document.getElementById('filtersBar');
+  bar.style.display = 'flex';
+  cats.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.dataset.cat = cat;
+    btn.textContent = cat;
+    btn.onclick = () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filtered = cat === 'todos' ? allProducts : allProducts.filter(p => p.categoria === cat);
+      renderProducts(filtered);
+    };
+    bar.appendChild(btn);
+  });
+  bar.querySelector('[data-cat="todos"]').onclick = () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    bar.querySelector('[data-cat="todos"]').classList.add('active');
+    renderProducts(allProducts);
+  };
+}
+
+function renderProducts(products) {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = '';
+
+  products.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    const imgHtml = p.foto
+      ? `<img src="${p.foto}" alt="${p.nome}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;product-img-placeholder&quot;>✦<br>Sagra</div>'">`
+      : `<div class="product-img-placeholder">✦<br>Sagra</div>`;
+
+    const badge = p.colecao && p.colecao.toLowerCase().includes('especial')
+      ? `<div class="product-badge">Edição Especial</div>` : '';
+
+    const waMsg = encodeURIComponent(`Olá! Tenho interesse na peça: ${p.nome} (${moneyBR(p.preco)})`);
+    const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`;
+
+    card.innerHTML = `
+      <div class="product-img-wrap">${imgHtml}${badge}</div>
+      <div class="product-info">
+        <div class="product-category">${p.categoria || ''}</div>
+        <div class="product-name">${p.nome}</div>
+        <div class="product-desc">${p.desc || ''}</div>
+        <div class="product-price-row">
+          <div class="product-price">${moneyBR(p.preco)}</div>
+          <a class="product-cta" href="${waLink}" target="_blank" rel="noopener">Quero</a>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+loadCatalog();
+</script>
+
+</body>
+</html>
