@@ -382,7 +382,12 @@ async function loadCatalog() {
 
     if (rows.length < 2) throw new Error('Planilha vazia');
 
-    const headers = rows[0].map(h => h.trim());
+    // Pula as 3 primeiras linhas decorativas (título, instrução, linha em branco)
+	// e usa a linha 4 da planilha como cabeçalho real
+	const dataRows = rows.slice(3);
+	if (dataRows.length < 2) throw new Error('Planilha sem produtos');
+	const headers = dataRows[0].map(h => h.trim());
+	
     const idx = {
       nome: headers.indexOf('Nome do Produto'),
       categoria: headers.indexOf('Categoria'),
@@ -395,7 +400,7 @@ async function loadCatalog() {
       disponivel: headers.indexOf('Disponível no Catálogo'),
     };
 
-    const products = rows.slice(1)
+    const products = dataRows.slice(1)
       .map(r => ({
         nome: r[idx.nome] || '',
         categoria: r[idx.categoria] || '',
