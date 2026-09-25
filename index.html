@@ -384,7 +384,7 @@ async function loadCatalog() {
 
     // Pula as 3 primeiras linhas decorativas (título, instrução, linha em branco)
 	// e usa a linha 4 da planilha como cabeçalho real
-	const dataRows = rows.slice(3);
+	const dataRows = rows.slice(2);
 	if (dataRows.length < 2) throw new Error('Planilha sem produtos');
 	const headers = dataRows[0].map(h => h.trim());
 	
