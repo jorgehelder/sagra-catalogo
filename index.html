@@ -225,7 +225,7 @@
     font-weight: 400;
     color: rgba(245,240,228,0.6);
     line-height: 1.65;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
     min-height: 20px;
   }
   .product-price-row {
@@ -277,12 +277,44 @@
     margin-top: 6px;
   }
 
+  /* ── LIGHTBOX ── */
+	.lightbox-overlay {
+	  display: none;
+	  position: fixed;
+	  inset: 0;
+	  background: rgba(10,14,8,0.92);
+	  z-index: 100;
+	  align-items: center;
+	  justify-content: center;
+	  padding: 24px;
+	  cursor: zoom-out;
+	}
+	.lightbox-overlay.active { display: flex; }
+	.lightbox-overlay img {
+	  max-width: 100%;
+	  max-height: 100%;
+	  border-radius: 4px;
+	  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+	}
+	.product-img-wrap { cursor: zoom-in; }
+
   @media (max-width: 480px) {
-    .brand-mark h1 { font-size: 34px; letter-spacing: 10px; }
-    .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
-    .product-name { font-size: 17px; }
-    .product-price { font-size: 18px; }
+  .brand-mark h1 { font-size: 34px; letter-spacing: 10px; }
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .product-name { font-size: 17px; }
+  .product-price { font-size: 18px; }
+
+  /* Empilha preço e botão verticalmente em telas estreitas */
+  .product-price-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
+  .product-cta {
+    width: 100%;
+    text-align: center;
+  }
+}
 </style>
 </head>
 <body>
@@ -310,6 +342,12 @@
   <div class="foot-ig">@sagrasemijoias</div>
 </footer>
 
+
+<!-- Lightbox para ampliar imagem do produto -->
+<div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="">
+</div>
+	
 <script>
 /* ══════════════════════════════════════════════════
    CONFIGURAÇÃO — troque esta URL pela sua planilha publicada
@@ -365,6 +403,15 @@ function moneyBR(v) {
   return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  lb.classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+	
 async function loadCatalog() {
   const grid = document.getElementById('productGrid');
   const statusMsg = document.getElementById('statusMsg');
@@ -467,8 +514,8 @@ function renderProducts(products) {
     card.className = 'product-card';
 
     const imgHtml = p.foto
-      ? `<img src="${p.foto}" alt="${p.nome}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;product-img-placeholder&quot;>✦<br>Sagra</div>'">`
-      : `<div class="product-img-placeholder">✦<br>Sagra</div>`;
+  ? `<img src="${p.foto}" alt="${p.nome}" loading="lazy" onclick="openLightbox('${p.foto.replace(/'/g, "\\'")}')" onerror="this.parentElement.innerHTML='<div class=&quot;product-img-placeholder&quot;>✦<br>Sagra</div>'">`
+  : `<div class="product-img-placeholder">✦<br>Sagra</div>`;
 
     const badge = p.colecao && p.colecao.toLowerCase().includes('especial')
       ? `<div class="product-badge">Edição Especial</div>` : '';
